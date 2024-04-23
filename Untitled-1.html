@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maggie's Birthday</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+            background-image: url(download.jpg);
+            background-size: cover;
+            background-position: center;
+            animation: fadeInBackground 10s ease;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: slideInDown 1s ease;
+        }
+
+        h1 {
+            color: #FF4500; /* Orange */
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Main Content Styles */
+        main section {
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease;
+        }
+
+        h2 {
+            color: #4682B4; /* Steel Blue */
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.8rem;
+            color: #777;
+            animation: slideInUp 1s ease;
+        }
+
+        /* Birthday Countdown Animation */
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        #countdown {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #FF4500;
+            animation: heartbeat 1s infinite;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInBackground {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="balloons.png" alt="Balloons and Confetti">
+            <h1>🎉 Happy Birthday, Maggie! 🎂</h1>
+        </header>
+        <main>
+            <section>
+                <h2>A Special Message for You</h2>
+                <p>Dear Maggie,</p>
+                <p>                   
+                    Happy Birthday! 🎉 Today is all about celebrating the wonderful person you are and the incredible friendship we share. From the countless laughs to the comforting shoulder you've always been, you're not just a best friend; you're family.
+                    
+                    As you blow out the candles today, may all your dreams and wishes come true. You deserve all the happiness, love, and success in the world. Thank you for being the sunshine on my cloudy days and the rock when life gets tough.
+                    
+                    Here's to another year filled with unforgettable moments, spontaneous adventures, and endless joy. Cheers to you, my dear friend! 🥂
+                    
+                    With all my love and warmest wishes.</p>
+            </section>
+            <video controls autoplay loop style="display:block; margin: 0 auto; max-width: 100%; border-radius: 10px;">
+                <source src="Timeline 1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <section>
+                <h2>Countdown to the Big Day</h2>
+                <p>Time until the celebration:</p>
+                <p><span id="countdown"></span></p>
+            </section>
+        </main>
+        <footer>
+            <p>Designed with ❤️ by your RK only for you.</p>
+        </footer>
+    </div>
+    <script>
+        function countdown() {
+            const birthday = new Date('April 24, 2024 00:00:00').getTime();
+            const now = new Date().getTime();
+            const difference = birthday - now;
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        setInterval(countdown, 1000);
+    </script>
+</body>
+</html>
